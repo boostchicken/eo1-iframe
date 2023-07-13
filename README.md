@@ -15,3 +15,4 @@ How to configure EO1 frame running Boundary Ubuntu to use this frame:
 References:
 - https://www.charlieharrington.com/run-linux-on-electric-objects-eo1-wall-computer/
 - https://www.reddit.com/r/electricobjects/comments/14mfxdq/wanted_to_share_with_everyone_here/
+- https://boundarydevices.com/ubuntu-bionic-18-04-3-lts-for-i-mx6-7-boards-august-2019-kernel-4-14-x/
