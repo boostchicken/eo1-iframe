@@ -4,3 +4,4 @@ eo1_caches/mp4s filter=lfs diff=lfs merge=lfs -text
 eo1_caches/rainyday_10fps filter=lfs diff=lfs merge=lfs -text
 eo1_caches/rainyday_20fps filter=lfs diff=lfs merge=lfs -text
 eo1_caches/fish_10fps filter=lfs diff=lfs merge=lfs -text
+*.mp4 filter=lfs diff=lfs merge=lfs -text
