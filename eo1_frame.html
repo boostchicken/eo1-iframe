@@ -1,0 +1,87 @@
+<html>
+<head>
+	<!--<script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script> -->
+<style>
+* { margin:0; padding:0; } /* to remove the top and left whitespace */
+
+html, body { width:100%; height:100%; } /* just to be sure these are full screen*/
+
+
+.100pct {
+	height: 100vh;
+	width: 100vw;
+	display:block;
+} /* To remove the scrollbars */
+</style>
+<script>
+
+    var gifs = [
+		"./gifs/fish/3493661cd038005f434db3b509f3b1ad.mp4.gif",
+		"./gifs/fish/406eea57f0ec07c2a32dcf157388baa5.mp4.gif",
+		"./gifs/fish/4ec08a85af6c4b013f425bab31a35ccc.mp4.gif",
+		"./gifs/fish/51c8ddc5b1b21a152fab245d5fb95565.mp4.gif",
+		"./gifs/fish/543104cae68a2ffa1257cb966b4ee394.mp4.gif",
+    ];
+    var shown_gifs = [];
+    var iframe_loaded = false;
+    var display_time = 60000;
+
+    function initOperatingArray() {
+		for (i = 0; i < gifs.length; i++) {
+		  shown_gifs[i] = gifs[i];
+		}
+    }
+
+    initOperatingArray();
+
+    function randomSel() {
+    	if (iframe_loaded) {
+	    	idx = Math.floor(Math.random() * shown_gifs.length);
+	    	show = shown_gifs[idx];
+			top.document.getElementById('eo1frame').src = show;
+			s = shown_gifs.splice(idx,1);
+			if (shown_gifs.length <= 0) {
+				initOperatingArray();
+			}
+			//console.log(shown_gifs.length);
+			setTimeout(randomSel,display_time);
+		}
+    }
+
+    /*
+	var preloads = []
+	function preloader(preload_array) {
+	    for (var i = 0; i < preload_array.length; i++) {
+	        preloads[i] = new Image();
+	        preloads[i].src = preload_array[i];
+	    }
+	}
+	preloader(shown_gifs);
+	*/
+
+    function initIframeRotator() {
+    	if (!iframe_loaded) {
+    		iframe_loaded = true;
+    		randomSel();
+		}
+	}
+
+</script>
+</head>
+<body>
+<!--	<canvas class="glslCanvas"  data-fragment-url="https://thebookofshaders.com/log/170930061739.frag" width="100%" height="100%" style="background-color: rgba(1, 1, 1, 0);"></canvas>
+-->
+
+
+<!--
+	<img src="./gifs/fish/3493661cd038005f434db3b509f3b1ad.mp4.gif" border="0" width="100%" height="100%" />
+
+	<img src="./tumblr_ov4mafWVCv1sb5osho1_540.gif" width="100%" height="100%" border="0" />
+-->
+
+<iframe id="eo1frame" class="100pct" src="i.gif" border="0"  onload="this.width=screen.width;this.height=screen.height;initIframeRotator();"></iframe>
+
+
+
+</body>
+</html>
